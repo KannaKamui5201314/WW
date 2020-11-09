@@ -19,24 +19,17 @@ public class Hint extends AppCompatActivity {
         new Thread(new Runnable() {
             @Override
             public void run() {
-                if(utils.isLogin()){
-                    try {
-                        Thread.sleep(1000);
-                        Intent intent = new Intent();
+                try {
+                    Thread.sleep(2000);
+                    Intent intent = new Intent();
+                    if(utils.isLogin()){
                         intent.setClass(Hint.this, MainActivity.class);
-                        Hint.this.startActivity(intent);
-                    } catch (InterruptedException e) {
-                        e.printStackTrace();
-                    }
-                }else {
-                    try {
-                        Thread.sleep(1000);
-                        Intent intent = new Intent();
+                    }else {
                         intent.setClass(Hint.this, Login.class);
-                        Hint.this.startActivity(intent);
-                    } catch (InterruptedException e) {
-                        e.printStackTrace();
                     }
+                    Hint.this.startActivity(intent);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
                 }
             }
         }).start();
